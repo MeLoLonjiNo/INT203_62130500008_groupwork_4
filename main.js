@@ -11,7 +11,15 @@
                     done: false,
                     },
                     {
-                    id: 1,
+                    id: 1,    
+                    title: 'DOTA2', 
+                    img: '/images/DOTA2.jpg',
+                    url:'https://www.dota2.com/play/',
+                    description:'DOTA 2 เป็นเกมแนว Action-RTS หรือ MOBA ที่เป็นการพัฒนาต่อยอดมาจากเกม DOTA ซึ่งรู้จักกันมานานในวงการเกมออนไลน์ ในภาคนี้เป็นการพัฒนาโดยทีมผู้สร้างเดิมอย่าง Iceforg ภายใต้สังกัด Valve ซึ่งมีชื่อเสียงการันตีถึงคุณภาพ',
+                    done: false,
+                    },
+                    {
+                    id: 2,
                     title: 'GENSHIN IMPACT',
                     img: '/images/Genshin_Impact.png',
                     url:'https://genshin.mihoyo.com/th/home',
@@ -19,13 +27,21 @@
                     done: false,
                     },
                     {
-                    id: 2,    
-                    title: 'DOTA2', 
-                    img: '/images/DOTA2.jpg',
-                    url:'https://www.dota2.com/play/',
-                    description:'DOTA 2 เป็นเกมแนว Action-RTS หรือ MOBA ที่เป็นการพัฒนาต่อยอดมาจากเกม DOTA ซึ่งรู้จักกันมานานในวงการเกมออนไลน์ ในภาคนี้เป็นการพัฒนาโดยทีมผู้สร้างเดิมอย่าง Iceforg ภายใต้สังกัด Valve ซึ่งมีชื่อเสียงการันตีถึงคุณภาพ',
+                    id: 3,    
+                    title: 'Little Nightmares', 
+                    img: '/images/littlenightmares1.jpg',
+                    url:'https://en.bandainamcoent.eu/little-nightmares/little-nightmares',
+                    description:'ดื่มด่ำไปกับ Little Nightmares เรื่องราวแห่งฝันร้ายอันดำมืดที่จะต้องเผชิญหน้ากับความกลัวในวัยเด็กของคุณ! ช่วย Six หลบหนีจาก The Maw - เรือลึกลับขนาดใหญ่ที่อาศัยอยู่โดยวิญญาณหิวโหยที่กำลังมองหาอาหารมื้อต่อไป',
                     done: false,
                     },
+                    {
+                    id: 4,    
+                    title: 'Little Nightmares 2', 
+                    img: '/images/littlenightmares2.jpg',
+                    url:'https://en.bandainamcoent.eu/little-nightmares/little-nightmares-ii',
+                    description:'little Nightmares II เป็นเกมผจญภัยสุดระทึกที่คุณรับบทเป็น Mono เด็กหนุ่มที่ติดอยู่ในโลกที่บิดเบี้ยว จงร่วมมือกับ Six เพื่อนใหม่ เพื่อออกเดินทางค้นหาที่มาของ The Signal ที่มาของฝันร้ายในครั้งนี้',
+                    done: false,
+                    }
                     
                 ],
                 heart: '/images/like.png',
@@ -41,7 +57,8 @@
                 this.tasks[index].done = !this.tasks[index].done
             },
             switchSearch(){
-                this.searchClick = !this.searchClick
+                this.searchClick = !this.searchClick;
+                this.inputSearch = '';
             },
             closeImage(){
                 this.show = false;

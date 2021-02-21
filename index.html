@@ -19,11 +19,11 @@
   <script src="https://unpkg.com/vue@next"></script>
 
 </head>
-
-<body>
-
-<div id="app">
-  <h1 class="mt-8 mb-10 text-4xl font-bold tracking-tighter text-center text-blue-800 lg:text-center lg:text-5xl title-font">
+<body class="bg-gray-800"></body>
+<!-- <body class="bg-gradient-to-r from-purple-200 to-pink-100"> -->
+  <div id="app" class="bg-white mx-20 my-10 pt-4 pb-8 rounded-xl">
+  
+  <h1 class=" pt-8 mb-10 text-4xl font-bold tracking-tighter text-center text-blue-800 lg:text-center lg:text-5xl title-font">
     My Games Gallery ({{countItem}})
   </h1>
   <h2 class="mt-8 mb-10 text-2xl font-bold tracking-tighter text-center text-blue-800 lg:text-center lg:text-3xl title-font">
@@ -32,12 +32,12 @@
 
 
   <div v-if="!searchClick">
-    <i v-on:click="switchSearch" class="material-icons grid justify-items-end cursor-pointer mr-80 mb-4 text-4xl">
+    <p v-on:click="switchSearch" class=" material-icons grid justify-items-end cursor-pointer mr-28 mb-4 text-3xl">
       search
-    </i>
+    </p>
   </div>
 
-  <div v-else class="text-right mr-80 mb-4">
+  <div v-else class="text-right mr-28 mb-4">
     <input v-model="inputSearch"
       class=" p-1 w-80 placeholder-gray-500 placeholder-opacity-50  focus:outline-none text-black rounded border-gray-300 border-2
       transition hover:border-gray-500 duration-500"
@@ -49,7 +49,7 @@
   </div>
 
   <div id="Preview">
-    <div class="bg-white text-xl rounded font-medium mt-6 h-9/12 py-4">
+    <div class="text-xl rounded font-medium mt-6 h-9/12 py-4">
       
       </p>
         <div class="flex bg-gray-800 rounded mx-4 justify-center" v-if="show">
@@ -62,9 +62,7 @@
     </div>
 </div>
 
-
-
-  <ul >
+  <ul>
     <li v-for="photo in searchMenu" class="mb-8">
   <section class="text-gray-700 body-font ">
     <div class="container flex flex-col w-3/4 items-center mx-auto lg:px-20 lg:py-8 md:flex-row">
@@ -101,10 +99,8 @@
         </section>
       </li>
       </ul>
-      <p v-if="notFound">Not have any games match with your search.</p>
-  </div>                  
-
-
+      <p v-if="notFound" class="text-2xl font-bold tracking-tighter text-center text-blue-800">Not have any games match with your search.</p>                 
+</div>
   <!-- my main.js -->
   <script src="./main.js"></script>
 </body>

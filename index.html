@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+
+<div id="app">
+  <h1 class="mt-8 mb-10 text-4xl font-bold tracking-tighter text-center text-blue-800 lg:text-center lg:text-5xl title-font">
+    My Games Gallery ({{countItem}})
+  </h1>
+  <h2 class="mt-8 mb-10 text-2xl font-bold tracking-tighter text-center text-blue-800 lg:text-center lg:text-3xl title-font">
+    Like ({{countDone}})
+  </h2>
+
+
+  <div v-if="!searchClick">
+    <i v-on:click="switchSearch" class="material-icons grid justify-items-end cursor-pointer mr-80 mb-4 text-4xl">
+      search
+    </i>
+  </div>
+
+  <div v-else class="text-right mr-80 mb-4">
+    <input v-model="inputSearch"
+      class=" p-1 w-80 placeholder-gray-500 placeholder-opacity-50  focus:outline-none text-black rounded border-gray-300 border-2
+      transition hover:border-gray-500 duration-500"
+      type="text" placeholder="Please enter text for searching photos"
+      >
+    <button v-on:click="switchSearch" 
+    class="ml-1 p-1 rounded focus:outline-none bg-blue-500 border-blue-500 border-2 text-white 
+    transition hover:bg-red-600 hover:border-red-600 duration-500">Cancel</button>
+  </div>
+
+  <div id="Preview">
+    <div class="bg-white text-xl rounded font-medium mt-6 h-9/12 py-4">
+      
+      </p>
+        <div class="flex bg-gray-800 rounded mx-4 justify-center" v-if="show">
+          <p class="mt-4 text-center text-4xl text-white" v-if="show"> {{ tasks[currentIndex].title }}
+            <img :src="tasks[currentIndex].img" class="h-96 my-4">
+            <i class="material-icons text-4xl text-white mb-4 cursor-pointer " @click="closeImage">cancel</i>
+        </div>
+        
+        <div v-else></div>
+    </div>
+</div>
+
+
+
+  <ul >
+    <li v-for="photo in searchMenu" class="mb-8">
+  <section class="text-gray-700 body-font ">
+    <div class="container flex flex-col w-3/4 items-center mx-auto lg:px-20 lg:py-8 md:flex-row">
+
+      <img v-on:click="imgClicked(photo.id)" @click="imgClicked(photo.id)"  class="cursor-pointer box-content w-4/12 object-cover object-center  rounded" v-bind:src="photo.img">
+      
+      <div class="flex flex-col items-center text-center lg:pl-24 md:pl-16 md:items-start md:text-left">
+        <div class="flex space-x-2">
+        <h1 class="mb-4 text-2xl font-bold tracking-tighter text-center text-blue-800 lg:text-left lg:text-2xl title-font">
+          {{photo.title}}
+        </h1>
+        <span v-show="!photo.done">
+          <i v-on:click="toggleDone(photo.id)" class="material-icons text-2xl cursor-pointer ">favorite_border</i>
+        </span>
+        <span v-show="photo.done">
+          <img v-on:click="toggleDone(photo.id)" class="w-4.5 h-5 mt-1.5 ml-0.5 " v-bind:src="heart">
+        </span>
+      </div>
+      <p>{{photo.description}}</p>
+
+        <div class="flex justify-center mt-4">
+          <a v-bind:href="photo.url" class="inline-flex items-center font-semibold text-blue-700 md:mb-2 lg:mb-0 hover:text-blue-400 ">
+            Website
+          <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"
+            fill="currentColor">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
+          </svg>
+          </a>
+          </div>
+        </div>
+        
+         </div>
+        </section>
+      </li>
+      </ul>
+      <p v-if="notFound">Not have any games match with your search.</p>
+  </div>                  
+
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+</body>
+
+</html>
